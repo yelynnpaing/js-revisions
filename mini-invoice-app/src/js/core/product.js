@@ -10,5 +10,8 @@ export const productCreate = (product) => {
 
 export const productRender = (products) => {
     //console.log(products);
-    products.forEach((el) => productSelect.append(productCreate(el)))
+    // products.forEach((el) => productSelect.append(productCreate(el)))
+    products.forEach(({name, id}) => {
+        productSelect.append(new Option(name, id));
+    });
 }
