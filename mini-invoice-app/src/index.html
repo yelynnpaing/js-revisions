@@ -84,8 +84,24 @@
                 </tfoot>
             </table>
         </div>
+        <section id="inventorySheet" class="z-50  w-96 bg-gray-100 border fixed h-screen left-0 top-0 duration-300 p-5">
+            <div class="inventorySheetHeader flex justify-between">
+                <h1 class="text-2xl font-bold text-blue-500">Your Products</h1>
+                <button id="sheetCloseBtn" class="rounded-lg bg-white px-2 hover:bg-gray-200 hover:text-red-700 active:bg-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="inventorySheetBody mt-5 space-y-2" id="productGroup">
+                
+            </div>
+            <div class="inventorySheetFooter">
+
+            </div>
+        </section>
         <footer class="flex justify-end mt-auto">
-            <button id="manageInventory" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg 
+            <button id="manageInventoryBtn" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg 
                 border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100
                 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white
                 dark:hover:bg-gray-700">
@@ -97,6 +113,8 @@
                 Print
             </button>
         </footer>
+
+        <!-- table row product template -->
         <template id="rowTemplate">
             <tr class="row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td scope="row" class="row-no px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -138,6 +156,14 @@
                     </button>
                 </td>
             </tr>
+        </template>
+        
+        <!-- Side bar product template -->
+        <template id="productTemplate">
+            <div class="border border-gray-300 py-2 px-3 rounded-lg flex justify-between">
+                <p class="text-gray-600 product-name"></p>
+                <p class="text-gray-500 product-price"></p>
+            </div>
         </template>
     </main>
 

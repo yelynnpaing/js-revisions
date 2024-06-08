@@ -1,5 +1,5 @@
 import { addRecordQuantity, createRecord, deleteRecord, subRecordQuantity, updateRecordTotal } from "./record.js";
-import { createForm, recordGroup, totalCost } from "./selector.js";
+import { createForm, inventorySheet, recordGroup, totalCost } from "./selector.js";
 import { products } from "./variables.js";
 
 
@@ -37,4 +37,8 @@ export const recordGroupHandler = (event) => {
     }else if(event.target.classList.contains("row-q-sub")){
         subRecordQuantity(event);
     }
+};
+
+export const manageInventoryBtnHandler = ()  => {
+    inventorySheet.classList.toggle("-translate-x-full");
 };
