@@ -29,7 +29,7 @@ export const createFormHandler = (e) => {
         recordGroup.append(createRecord(currentProduct, currentQuantity));
     }    
     createForm.reset();
-    updateRecordTotal();
+    // updateRecordTotal();
 };
 
 export const recordGroupHandler = (event) => {

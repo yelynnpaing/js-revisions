@@ -1,4 +1,4 @@
-import { rowTemplate, totalCost } from "./selector.js"
+import { recordGroup, rowTemplate, totalCost } from "./selector.js"
 
 export const createRecord = ({id, name, price}, quantity) => {
     const record = rowTemplate.content.cloneNode(true);
@@ -27,7 +27,7 @@ export const deleteRecord = (event) => {
     const row = event.target.closest(".row");
     if(confirm("Are you sure want to delete this row")){
         row.remove();
-        updateRecordTotal();
+        // updateRecordTotal();
     }
 };
 
@@ -38,12 +38,14 @@ export const updateRecord = (productId, q) => {
     const currentQuantity = row.querySelector(".row-quantity");
     const currentPrice = row.querySelector(".row-product-price");
     const currentCost = row.querySelector(".row-cost");
-    currentQuantity.innerText = parseInt(currentQuantity.innerText) + q;
-    currentCost.innerText = currentQuantity.innerText * parseFloat(currentPrice.innerText);
-    updateRecordTotal();
+    if(q > 0 || currentQuantity.innerText > 1){
+        currentQuantity.innerText = parseInt(currentQuantity.innerText) + q;
+        currentCost.innerText = currentQuantity.innerText * parseFloat(currentPrice.innerText);
+        // updateRecordTotal();
+    }
 }
 
-//add record
+//add record 
 export const addRecordQuantity = (event) => {
     const row = event.target.closest(".row");
     const currentQuantity = row.querySelector(".row-quantity");
@@ -53,7 +55,7 @@ export const addRecordQuantity = (event) => {
     currentCost.innerText = currentQuantity.innerText * parseFloat(currentPrice.innerText);
     updateRecordTotal();
 }
-//sub record
+//sub record 
 export const subRecordQuantity = (event) => {
     const row = event.target.closest(".row");
     const currentQuantity = row.querySelector(".row-quantity");
@@ -67,4 +69,20 @@ export const subRecordQuantity = (event) => {
         deleteRecord(event);
     }
     
+}
+
+export const recordObserver = () => {
+    const run = () => {
+        // console.log("u chage...");
+        updateRecordTotal();
+    };
+
+    const observerOptions = {
+        childList: true, 
+        subtree: true 
+    };
+
+    const observer = new MutationObserver(run);
+    observer.observe(recordGroup, observerOptions)
+
 }
