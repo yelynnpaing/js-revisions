@@ -31,6 +31,19 @@ export const deleteRecord = (event) => {
     }
 };
 
+//dual add and sub record
+export const updateRecord = (productId, q) => {
+    // const row = event.target.closest(".row");
+    const row = document.querySelector(`[row-product-id="${productId}"]`); 
+    const currentQuantity = row.querySelector(".row-quantity");
+    const currentPrice = row.querySelector(".row-product-price");
+    const currentCost = row.querySelector(".row-cost");
+    currentQuantity.innerText = parseInt(currentQuantity.innerText) + q;
+    currentCost.innerText = currentQuantity.innerText * parseFloat(currentPrice.innerText);
+    updateRecordTotal();
+}
+
+//add record
 export const addRecordQuantity = (event) => {
     const row = event.target.closest(".row");
     const currentQuantity = row.querySelector(".row-quantity");
@@ -40,7 +53,7 @@ export const addRecordQuantity = (event) => {
     currentCost.innerText = currentQuantity.innerText * parseFloat(currentPrice.innerText);
     updateRecordTotal();
 }
-
+//sub record
 export const subRecordQuantity = (event) => {
     const row = event.target.closest(".row");
     const currentQuantity = row.querySelector(".row-quantity");

@@ -1,5 +1,5 @@
-import { createFormHandler, manageInventoryBtnHandler, recordGroupHandler } from "./handlers.js"
-import { createForm, manageInventoryBtn, recordGroup, sheetCloseBtn } from "./selector.js"
+import { createFormHandler, manageInventoryBtnHandler, newProductCreateFormHandler, printBtnHandler, recordGroupHandler } from "./handlers.js"
+import { createForm, manageInventoryBtn, newProductCreateForm, printBtn, recordGroup, sheetCloseBtn } from "./selector.js"
 
 
 export const listener = () => {
@@ -7,4 +7,6 @@ export const listener = () => {
     recordGroup.addEventListener("click", recordGroupHandler);
     manageInventoryBtn.addEventListener("click", manageInventoryBtnHandler);
     sheetCloseBtn.addEventListener("click", manageInventoryBtnHandler);
+    newProductCreateForm.addEventListener("submit", newProductCreateFormHandler);
+    printBtn.addEventListener("click", printBtnHandler);
 }

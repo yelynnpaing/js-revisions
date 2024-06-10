@@ -1,4 +1,4 @@
-import { productGroup, productTemplate } from "./selector.js";
+import { productGroup, productSelect, productTemplate } from "./selector.js";
 import { products } from "./variables.js";
 
 export const productCreate = ({name, price}) => {
@@ -16,6 +16,8 @@ export const productCreate = ({name, price}) => {
 export const productRender = (products) => {
     //console.log(products);
     // products.forEach((el) => productSelect.append(productCreate(el)))
+    productSelect.innerHTML = "";
+    productGroup.innerHTML = "";
     products.forEach(({name, price, id}) => {
         productSelect.append(new Option(name, id));
         productGroup.append(productCreate({name, price}));
