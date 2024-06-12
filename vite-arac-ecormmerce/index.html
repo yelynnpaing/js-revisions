@@ -23,7 +23,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>          
               </button>
-              <button type="button" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+              <button data-drawer-target="right-drawer" data-drawer-show="right-drawer" data-drawer-placement="right" aria-controls="right-drawer"
+              type="button" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
               font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-gray-700
               dark:focus:ring-blue-800">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -34,323 +35,75 @@
           </div>
         </div>
       </header>
+      <!-- drawer component -->
+      <section id="right-drawer"
+      class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
+      tabindex="-1" aria-labelledby="drawer-right-label">
+      <h5 id="drawer-right-label"
+        class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
+          class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          viewBox="0 0 20 20">
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+        </svg>Your Cart</h5>
+      <button type="button" data-drawer-hide="right-drawer" aria-controls="right-drawer"
+        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+        <span class="sr-only">Close menu</span>
+      </button>
+      <div class="cart-items-group group">
+        <div class="cart-item">
+          <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="h-16 cart-item-image ms-5 -mb-8" alt="">
+          <div class="cart-info border border-gray-500 rounded p-5">
+            <p class="font-bold mb-3 mt-5">Mens Cotton Jacket</p>
+            <div class="flex justify-between">
+              <p>$ <span>109.5</span></p>
+              <div class="">
+                <button class="row-q-sub bg-gray-200 p-1 rounded active:bg-red-200 pointer-events-none opacity-0 -translate-x-10 
+                    duration-200 group-hover:opacity-100 group-hover:-translate-x-0 group-hover:pointer-events-auto print:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                        class="size-3 pointer-events-none">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>                                                  
+                    </button>
+                    <span class="row-quantity w-5 text-end">0</span>
+                    <button class="row-q-add bg-gray-200 p-1 rounded active:bg-gray-300 pointer-events-none opacity-0 translate-x-10 
+                    duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto print:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                        class="size-3 pointer-events-none">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                          </svg>                          
+                    </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
       <section id="categorySection" class="py-3">
         <div class="container mx-auto">
           <h3 class="mb-2 font-medium">Product Categories</h3>
-          <div class="flex overflow-x-auto gap-3">
+          <div id="categoryGroup" class="flex overflow-x-auto gap-3">
             <button class="border border-gray-700 text-nowrap px-8 py-1 rounded-md bg-gray-700 text-white">
               All
-            </button>
-            <button class="border border-gray-700 text-nowrap px-8 py-1 rounded-md">
-              Electronics
-            </button>
-            <button class="border border-gray-700 text-nowrap px-8 py-1 rounded-md">
-              Jewelry
-            </button>
-            <button class="border border-gray-700 text-nowrap px-8 py-1 rounded-md">
-              Man Clothings
             </button>
           </div>
         </div>
       </section>
       <section id="productsSection" class="py-3">
         <div class="container mx-auto">
-          <div class="grid gap-4 xl:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            <div class="col-span-1 product-card">
-              <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-img h-[100px] ms-5 -mb-[50px]" alt="product image">
-              <div class="w-full border border-gray-700 p-5 rounded-md">
-                <p class="product-title pt-5 mb-3 font-md mt-[30px]">Mens Cotton Jacket</p>
-                <p class="product-desc text-sm mb-3 text-gray-500 text-justify">
-                  cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son.
-                </p>
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>    
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>                
-                  </div>
-                  <p>
-                    (4.2 / 250)
-                  </p>
-                </div>
-                <hr class="border-gray-500 mb-3">
-                <p class="font-bold mb-5">$ <span>109.5</span></p>
-                <button class="w-full p-2 border rounded-lg border-gray-700">
-                  Add to cart
-                </button>
-              </div>
-            </div>
-            <div class="col-span-1 product-card">
-              <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-img h-[100px] ms-5 -mb-[50px]" alt="product image">
-              <div class="w-full border border-gray-700 p-5 rounded-md">
-                <p class="product-title pt-5 mb-3 font-md mt-[30px]">Mens Cotton Jacket</p>
-                <p class="product-desc text-sm mb-3 text-gray-500 text-justify">
-                  cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son.
-                </p>
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>    
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>                
-                  </div>
-                  <p>
-                    (4.2 / 250)
-                  </p>
-                </div>
-                <hr class="border-gray-500 mb-3">
-                <p class="font-bold mb-5">$ <span>109.5</span></p>
-                <button class="w-full p-2 border rounded-lg border-gray-700">
-                  Add to cart
-                </button>
-              </div>
-            </div>
-            <div class="col-span-1 product-card">
-              <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-img h-[100px] ms-5 -mb-[50px]" alt="product image">
-              <div class="w-full border border-gray-700 p-5 rounded-md">
-                <p class="product-title pt-5 mb-3 font-md mt-[30px]">Mens Cotton Jacket</p>
-                <p class="product-desc text-sm mb-3 text-gray-500 text-justify">
-                  cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son.
-                </p>
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>    
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>                
-                  </div>
-                  <p>
-                    (4.2 / 250)
-                  </p>
-                </div>
-                <hr class="border-gray-500 mb-3">
-                <p class="font-bold mb-5">$ <span>109.5</span></p>
-                <button class="w-full p-2 border rounded-lg border-gray-700">
-                  Add to cart
-                </button>
-              </div>
-            </div>
-            <div class="col-span-1 product-card">
-              <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-img h-[100px] ms-5 -mb-[50px]" alt="product image">
-              <div class="w-full border border-gray-700 p-5 rounded-md">
-                <p class="product-title pt-5 mb-3 font-md mt-[30px]">Mens Cotton Jacket</p>
-                <p class="product-desc text-sm mb-3 text-gray-500 text-justify">
-                  cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son.
-                </p>
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>    
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>                
-                  </div>
-                  <p>
-                    (4.2 / 250)
-                  </p>
-                </div>
-                <hr class="border-gray-500 mb-3">
-                <p class="font-bold mb-5">$ <span>109.5</span></p>
-                <button class="w-full p-2 border rounded-lg border-gray-700">
-                  Add to cart
-                </button>
-              </div>
-            </div>
-            <div class="col-span-1 product-card">
-              <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-img h-[100px] ms-5 -mb-[50px]" alt="product image">
-              <div class="w-full border border-gray-700 p-5 rounded-md">
-                <p class="product-title pt-5 mb-3 font-md mt-[30px]">Mens Cotton Jacket</p>
-                <p class="product-desc text-sm mb-3 text-gray-500 text-justify">
-                  cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son.
-                </p>
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>    
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>                
-                  </div>
-                  <p>
-                    (4.2 / 250)
-                  </p>
-                </div>
-                <hr class="border-gray-500 mb-3">
-                <p class="font-bold mb-5">$ <span>109.5</span></p>
-                <button class="w-full p-2 border rounded-lg border-gray-700">
-                  Add to cart
-                </button>
-              </div>
-            </div>
-            <div class="col-span-1 product-card">
-              <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-img h-[100px] ms-5 -mb-[50px]" alt="product image">
-              <div class="w-full border border-gray-700 p-5 rounded-md">
-                <p class="product-title pt-5 mb-3 font-md mt-[30px]">Mens Cotton Jacket</p>
-                <p class="product-desc text-sm mb-3 text-gray-500 text-justify">
-                  cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son.
-                </p>
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>    
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>                
-                  </div>
-                  <p>
-                    (4.2 / 250)
-                  </p>
-                </div>
-                <hr class="border-gray-500 mb-3">
-                <p class="font-bold mb-5">$ <span>109.5</span></p>
-                <button class="w-full p-2 border rounded-lg border-gray-700">
-                  Add to cart
-                </button>
-              </div>
-            </div>
-            <div class="col-span-1 product-card">
-              <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-img h-[100px] ms-5 -mb-[50px]" alt="product image">
-              <div class="w-full border border-gray-700 p-5 rounded-md">
-                <p class="product-title pt-5 mb-3 font-md mt-[30px]">Mens Cotton Jacket</p>
-                <p class="product-desc text-sm mb-3 text-gray-500 text-justify">
-                  cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son.
-                </p>
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>    
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>                
-                  </div>
-                  <p>
-                    (4.2 / 250)
-                  </p>
-                </div>
-                <hr class="border-gray-500 mb-3">
-                <p class="font-bold mb-5">$ <span>109.5</span></p>
-                <button class="w-full p-2 border rounded-lg border-gray-700">
-                  Add to cart
-                </button>
-              </div>
-            </div>
-            <div class="col-span-1 product-card">
-              <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-img h-[100px] ms-5 -mb-[50px]" alt="product image">
-              <div class="w-full border border-gray-700 p-5 rounded-md">
-                <p class="product-title pt-5 mb-3 font-md mt-[30px]">Mens Cotton Jacket</p>
-                <p class="product-desc text-sm mb-3 text-gray-500 text-justify">
-                  cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son.
-                </p>
-                <div class="flex justify-between items-center mb-3">
-                  <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>    
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
-                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                    </svg>                
-                  </div>
-                  <p>
-                    (4.2 / 250)
-                  </p>
-                </div>
-                <hr class="border-gray-500 mb-3">
-                <p class="font-bold mb-5">$ <span>109.5</span></p>
-                <button class="w-full p-2 border rounded-lg border-gray-700">
-                  Add to cart
-                </button>
-              </div>
-            </div>
+          <div id="productGroup" class="grid gap-4 xl:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+           
           </div>
         </div>
       </section>
       <footer class="bg-gray-700 py-3 mt-auto">
         <div class="container mx-auto">
           <div class="flex justify-between items-cente">
-            <p class="text-white">©2024 <a href="#" class="text-blue-500 underline underline-offset-4">Ara C Mandalay</a></p>
+            <p class="text-white">©2024 <a href="#" class="text-blue-500 pr-2 underline underline-offset-4">Ara C Mandalay.</a>All right served.</p>
             <button type="button" class="text-white border border-white hover:bg-white hover:text-gray-500 focus:ring-4 
             focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center 
              dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
@@ -361,6 +114,64 @@
           </div>
         </div>
       </footer>
+
+      <!-- templates -->
+       <template id="categoryTemplate">
+        <button id="cartBtn" class="border border-gray-700 text-nowrap px-8 py-1 rounded-md text-gray-800">
+          All
+        </button>
+       </template>
+
+       <template id="productTemplate">
+        <div class="col-span-1 product-card">
+          <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="product-image h-[100px] ms-5 -mb-[50px]"
+            alt="product image">
+          <div class="w-full border border-gray-700 p-5 rounded-md">
+            <p class="product-title pt-5 mb-3 font-md line-clamp-1 mt-[30px]">Mens Cotton Jacket</p>
+            <p class="product-desc text-sm mb-3 text-gray-500 text-justify line-clamp-3">
+              cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to
+              Father, husband or son.
+            </p>
+            <div class="flex justify-between items-center mb-3">
+              <div class="flex gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
+                  <path fill-rule="evenodd"
+                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                    clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
+                  <path fill-rule="evenodd"
+                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                    clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
+                  <path fill-rule="evenodd"
+                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                    clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-700">
+                  <path fill-rule="evenodd"
+                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                    clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColour" class="size-5 fill-gray-300">
+                  <path fill-rule="evenodd"
+                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <p class="product-rate-and-score">
+                (4.2 / 250)
+              </p>
+            </div>
+            <hr class="border-gray-500 mb-3">
+            <p class="font-bold mb-5">$ <span class="product-price">109.5</span></p>
+            <button class="product-add-to-cart w-full p-2 border rounded-lg border-gray-700">
+              Add to cart
+            </button>
+          </div>
+        </div>
+       </template>
     </div>
     <script type="module" src="/main.js"></script>
   </body>

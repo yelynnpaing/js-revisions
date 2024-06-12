@@ -3,19 +3,20 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
     container: {
       padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
+        DEFAULT: "1rem",
+        sm: "2rem",
       },
     },
-    fontFamily:{
-      sans:["Poppins", "sans-serif"],
+    fontFamily: {
+      sans: ["Poppins", "sans-serif"],
     },
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [require("flowbite/plugin")],
+};
 
