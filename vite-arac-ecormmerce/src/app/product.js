@@ -1,6 +1,6 @@
 import { products } from "../js/data"
 import { cartItemGroup, productGroup, productTemplate } from "../js/selectors"
-import { createCartItem } from "./cart";
+import { createCartItem, updateCartTotalCost, updateCountCardItem } from "./cart";
 
 
 export const renderStar = (rate) => {
@@ -55,5 +55,7 @@ export const handleProductGroup = (event) => {
         );
     const currentProduct = products.find((product) => product.id === currentProductCardId);
         cartItemGroup.append(createCartItem(currentProduct, 1));
+        updateCountCardItem();
+        updateCartTotalCost();
     }
 }   
