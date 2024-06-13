@@ -3,4 +3,5 @@ export const categoryGroup = document.querySelector("#categoryGroup");
 export const categoryTemplate = document.querySelector("#categoryTemplate");
 export const productGroup = document.querySelector("#productGroup");
 export const productTemplate = document.querySelector("#productTemplate");
-
+export const cartItemGroup = document.querySelector(".cart-item-group");
+export const cartItemTemplate = document.querySelector("#cartItemTemplate");

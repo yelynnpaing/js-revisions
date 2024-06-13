@@ -1,6 +1,6 @@
-import { renderCategory } from "../app/category.js";
-import { renderProduct } from "../app/product.js";
-import { categories, products } from "./data.js";
+import { renderCategory } from "../app/category";
+import { renderProduct } from "../app/product";
+import { categories, products } from "./data";
 
 
 export const initialRender = () => {
