@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { cartCount, cartItemCount, cartItemTemplate, totalCost } from "../js/selectors"
+import { cartCount, cartItemCount, cartItemTemplate, productGroup, totalCost } from "../js/selectors"
 
 export const createCartItem = (product, quantity) => {
     const template = cartItemTemplate.content.cloneNode(true);
@@ -7,6 +7,8 @@ export const createCartItem = (product, quantity) => {
     template.querySelector(".cart-item-title").innerText = product.title;
     template.querySelector(".cart-item-price").innerText = product.price;
     template.querySelector(".cart-item-quantity").innerText = quantity;
+    template.querySelector(".cart-item-cost").innerText = product.price * quantity;
+    template.querySelector(".cart-item").setAttribute("cart-product-id", product.id);
     return template;
 }
 
@@ -22,7 +24,7 @@ export const updateCountCardItem = () => {
 }
 
 export const calculateTotalCostInCart = () => {
-    const total = [...document.querySelectorAll(".cart-item-price")].reduce(
+    const total = [...document.querySelectorAll(".cart-item-cost")].reduce(
       (pv, cv) => pv + parseFloat(cv.innerText),
       0
     );
@@ -36,7 +38,15 @@ export const updateCartTotalCost = () => {
 
 export const handleCartItemGroup = (event) => {
     if (event.target.classList.contains("card-item-delete")) {
-        const currentCartItem = event.target.closest(".cart-item");
+        const currentCartItem = event.target.closest(".cart-item"); 
+        const currentProductId = currentCartItem.getAttribute("cart-product-id");
+        const currentProduct = productGroup.querySelector(
+          `[product-id='${currentProductId}']`
+        );
+        const currentProductCartBtn = currentProduct.querySelector(
+          ".product-add-to-cart-btn"
+        );
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -50,6 +60,8 @@ export const handleCartItemGroup = (event) => {
                 currentCartItem.remove();
                 updateCartTotalCost();
                 updateCountCardItem();
+                currentProductCartBtn.removeAttribute("disabled");
+                currentProductCartBtn.innerText = "Add to Cart";
             }
         });
 
@@ -58,5 +70,29 @@ export const handleCartItemGroup = (event) => {
         //     updateCartTotalCost();
         //     updateCountCardItem();
         // };
+    } else if (event.target.classList.contains("cart-q-add")) {
+        const currentCartItem = event.target.closest(".cart-item");
+        const currentPrice = currentCartItem.querySelector(".cart-item-price");
+        const currentCost = currentCartItem.querySelector(".cart-item-cost");
+        const currentQuantity = currentCartItem.querySelector(".cart-item-quantity");
+
+        currentQuantity.innerText = parseInt(currentQuantity.innerText) + 1;
+        currentCost.innerText =
+          (currentQuantity.innerText * currentPrice.innerText).toFixed(3);
+        updateCartTotalCost();
+    } else if (event.target.classList.contains("cart-q-sub")) {
+        const currentCartItem = event.target.closest(".cart-item");
+        const currentPrice = currentCartItem.querySelector(".cart-item-price");
+        const currentCost = currentCartItem.querySelector(".cart-item-cost");
+        const currentQuantity = currentCartItem.querySelector(
+          ".cart-item-quantity"
+        );
+
+        if (currentQuantity.innerText > 1) {
+            currentQuantity.innerText = parseInt(currentQuantity.innerText) - 1;
+        currentCost.innerText =
+          currentQuantity.innerText * currentPrice.innerText;
+        updateCartTotalCost();
+        }
     }
 }

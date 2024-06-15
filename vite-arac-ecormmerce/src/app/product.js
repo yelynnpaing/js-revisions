@@ -38,7 +38,13 @@ export const createProduct = (product) => {
     template.querySelector(".product-price").innerText = product.price;
     template.querySelector(".product-star").innerHTML = renderStar(product.rating.rate);
     
-
+    const isExistedInCart = cartItemGroup.querySelector(
+        `[cart-product-id='${product.id}']`
+    ) ? true : false;
+    if (isExistedInCart) {
+        template.querySelector(".product-add-to-cart-btn").setAttribute("disabled", true);
+        template.querySelector(".product-add-to-cart-btn").innerText = "Added";
+    }
     return template;
 }
 
@@ -48,7 +54,10 @@ export const renderProduct = (products) => {
 }
 
 export const handleProductGroup = (event) => {
-    if (event.target.classList.contains("product-add-to-cart")) {
+    if (event.target.classList.contains("product-add-to-cart-btn")) {
+        const currentBtn = event.target;
+        currentBtn.setAttribute("disabled", true);
+        currentBtn.innerText = "Added";
         const currentProductCard = event.target.closest(".product-card");
         const currentProductCardId = parseInt(
             currentProductCard.getAttribute("product-id")
