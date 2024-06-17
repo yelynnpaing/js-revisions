@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/aracLogo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AraC E-cormmerce</title>
   </head>
   <body>
     <div id="app" class="flex flex-col min-h-screen">
-      <header class="border-b-2 border-b-gray-700 py-2">
+      <header class="border-b-2 border-b-gray-700 py-2 fixed w-full z-50 bg-gray-100">
         <div class="container mx-auto">
           <div class="flex justify-between">
             <div class="">
@@ -23,8 +23,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>          
               </button>
-              <button data-drawer-target="right-drawer" data-drawer-show="right-drawer" data-drawer-placement="right" aria-controls="right-drawer"
-              type="button" class="relative text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+              <button id="cartDrawer" data-drawer-target="right-drawer" data-drawer-show="right-drawer" data-drawer-placement="right" aria-controls="right-drawer"
+              type="button" class="animate__animated relative text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
               font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-gray-700
               dark:focus:ring-blue-800">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -40,7 +40,7 @@
       </header>
       <!-- drawer component -->
       <section id="right-drawer"
-      class="fixed top-0 right-0 z-40 h-screen overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
+      class="fixed top-0 right-0 z-40 pt-5 h-screen overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
       tabindex="-1" aria-labelledby="drawer-right-label">
       <div class="flex flex-col gap-3 min-h-screen p-4">
         <div class="cart-header">
@@ -83,7 +83,7 @@
         </div>
       </div>
     </section>
-      <section id="categorySection" class="py-3">
+      <section id="categorySection" class="py-3 mt-20">
         <div class="container mx-auto">
           <h3 class="mb-2 font-medium">Product Categories</h3>
           <div id="categoryGroup" class="flex overflow-x-auto gap-3">

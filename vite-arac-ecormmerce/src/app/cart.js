@@ -40,13 +40,6 @@ export const handleCartItemGroup = (event) => {
     if (event.target.classList.contains("card-item-delete")) {
         const currentCartItem = event.target.closest(".cart-item"); 
         const currentProductId = currentCartItem.getAttribute("cart-product-id");
-        const currentProduct = productGroup.querySelector(
-          `[product-id='${currentProductId}']`
-        );
-        const currentProductCartBtn = currentProduct.querySelector(
-          ".product-add-to-cart-btn"
-        );
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -60,8 +53,16 @@ export const handleCartItemGroup = (event) => {
                 currentCartItem.remove();
                 updateCartTotalCost();
                 updateCountCardItem();
-                currentProductCartBtn.removeAttribute("disabled");
-                currentProductCartBtn.innerText = "Add to Cart";
+                const currentProduct = productGroup.querySelector(
+                  `[product-id='${currentProductId}']`
+                );
+                if (currentProduct) {
+                    const currentProductCartBtn = currentProduct.querySelector(
+                      ".product-add-to-cart-btn"
+                    );
+                    currentProductCartBtn.removeAttribute("disabled");
+                    currentProductCartBtn.innerText = "Add to Cart";
+                }
             }
         });
 

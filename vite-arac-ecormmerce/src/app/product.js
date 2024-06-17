@@ -1,5 +1,5 @@
 import { products } from "../js/data"
-import { cartItemGroup, productGroup, productTemplate } from "../js/selectors"
+import { cartDrawer, cartItemGroup, productGroup, productTemplate } from "../js/selectors"
 import { createCartItem, updateCartTotalCost, updateCountCardItem } from "./cart";
 
 
@@ -62,9 +62,47 @@ export const handleProductGroup = (event) => {
         const currentProductCardId = parseInt(
             currentProductCard.getAttribute("product-id")
         );
+
+        const currentProductCardImg = currentProductCard.querySelector(".product-image");
+        const animateImage = new Image();
+        animateImage.src = currentProductCardImg.src;
+        animateImage.style.position = "fixed";
+        animateImage.style.top = currentProductCardImg.getBoundingClientRect().top + "px";
+        animateImage.style.left =
+          currentProductCardImg.getBoundingClientRect().left + "px";
+        animateImage.style.width =
+            currentProductCardImg.getBoundingClientRect().width + "px";
+        animateImage.style.height =
+            currentProductCardImg.getBoundingClientRect().height + "px";
+        document.body.append(animateImage);
+        
+        const keyframes = [
+          {
+            top: currentProductCardImg.getBoundingClientRect().top + "px",
+            left: currentProductCardImg.getBoundingClientRect().left + "px",
+          },
+          {
+            top: cartDrawer.querySelector("svg").getBoundingClientRect().top + "px",
+            left: cartDrawer.querySelector("svg").getBoundingClientRect().left + "px",
+            height: "0px",
+            width: "0px",
+            transform: "rotate(2turn)",
+          },
+        ];
+        const duration = 500;
+        const addToCartAnimation = animateImage.animate(keyframes, duration);
+        const animationHandler = () => {
+            animateImage.remove();
+            cartDrawer.classList.add("animate__tada");
+            cartDrawer.addEventListener("animationend", () => {
+                cartDrawer.classList.remove("animate__tada");
+            })
+            updateCountCardItem();
+            updateCartTotalCost();
+        }
+        addToCartAnimation.addEventListener("finish", animationHandler);
+
     const currentProduct = products.find((product) => product.id === currentProductCardId);
         cartItemGroup.append(createCartItem(currentProduct, 1));
-        updateCountCardItem();
-        updateCartTotalCost();
     }
 }   
